@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="3.1" client="site" method="upgrade">
+   <name>mod_jdtourshowcase</name>
+   <author>JoomDev</author>
+   <creationDate>Jan 2019</creationDate>
+   <copyright>Copyright (C) 2005 - 2017 Open Source Matters. All rights reserved.</copyright>
+   <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+   <authorEmail>info@joomdev.com</authorEmail>
+   <authorUrl>www.joomdev.com</authorUrl>
+   <version>1.0</version>
+   <description>MOD_JDTOURSHOWCASE_XML_DESCRIPTION</description>
+   <updateservers>
+		<server type="extension" name="mod_jdtourshowcase" priority="1">https://cdn.joomdev.com/extensionupdates/mod_jdtourshowcase.xml</server>
+	</updateservers>
+   <files>
+      <filename module="mod_jdtourshowcase">mod_jdtourshowcase.php</filename>
+      <folder>tmpl</folder>
+      <folder>fields</folder>
+      <filename>helper.php</filename>
+   </files>
+    <media folder="media" destination="mod_jdtourshowcase">
+      <folder>assets</folder>
+    </media>
+   <languages folder="language">
+      <language tag="en-GB">en-GB/en-GB.mod_jdtourshowcase.ini</language>
+      <language tag="en-GB">en-GB/en-GB.mod_jdtourshowcase.sys.ini</language>
+   </languages>
+   <config>
+      <fields name="params">
+         <fieldset name="basic" addfieldpath="/modules/mod_jdtourshowcase/fields">
+            <field
+                name="tour"
+                type="sql"
+                query="SELECT id, title FROM #__jdtoursshowcase_tour_type  where state=1"
+                label="Select Tour Type"
+                key_field="id"
+                value_field="title"
+                description="Select Tour Type"
+            />
+ 
+   
+            <field
+               name="grid_coloumns"
+               type="list"
+               label="MOD_JDTOURSHOWCASE_GRID_COLUMNS_LABEL"
+               description="MOD_JDTOURSHOWCASE_GRID_COLUMNS_DESC"
+               default="4"
+               class="btn-group btn-group-yesno"
+            >
+               <option value="12">J1</option>
+               <option value="6">J2</option>
+               <option value="4">J3</option>
+               <option value="3">J4</option>
+               <option value="2">J6</option>
+            </field>
+         
+          
+            <field
+               name="display_all"
+               type="hidden"
+               label="MOD_JDTOURSHOWCASE_DISPLAY_ALL_LABEL"
+               description="MOD_JDTOURSHOWCASE_DISPLAY_ALL_DESC"
+               default="1"
+               class="btn-group btn-group-yesno"
+            >
+               <option value="1">JYES</option>
+               <option value="0">JNO</option>
+            </field>
+            <field
+               name="limit"
+               type="number"
+               min="1"
+               label="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_LABEL"
+               description="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_DESC"
+               default="1"
+               class="btn-group btn-group-yesno"
+            />
+           
+            <field
+               name="order"
+               type="list"
+               label="MOD_JDTOURSHOWCASE_ORDER_LABEL"
+               description="MOD_JDTOURSHOWCASE_ORDER_DESC"
+               default="id"
+               class="btn-group btn-group-yesno"
+            >
+               <option value="id DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
+               <option value="id ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>
+               <option value="title DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_DESC</option>
+               <option value="title ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_ASC</option>
+               <option value="hits DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_DESC</option>
+               <option value="hits ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_ASC</option>
+               <option value="random">MOD_JDTOURSHOWCASE_ORDER_OPTION_RANDOM</option>
+               <option value="ordering">MOD_JDTOURSHOWCASE_ORDER_OPTION_ORDERING</option>
+            </field>
+
+            <field
+               name="button"
+               type="text"
+               filter="safehtml"
+               label="BUTTON_TEXT_LABEL"
+               description="BUTTON_TEXT_DESCRIPTION"
+               default="See More"
+            />
+            <field 
+               name="button_link"
+               type="menuitem"
+               label="SELECT_A_MENU_LABEL" 
+               description="SELECT_A_MENU_DESCRIPTION" 
+            />
+         </fieldset>
+         <fieldset name="advanced">
+            <field
+               name="layout"
+               type="modulelayout"
+               label="JFIELD_ALT_LAYOUT_LABEL"
+               description="JFIELD_ALT_MODULE_LAYOUT_DESC"
+               default="default"
+            />
+             <field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" rows="3"/>
+         </fieldset>
+      </fields>
+   </config>
+</extension>

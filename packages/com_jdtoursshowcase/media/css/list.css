@@ -1,0 +1,100 @@
+/**
+
+ * @package     com_jdtoursshowcase
+ * @copyright   Copyright (C) 2019 Joomdev, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      JoomDev <info@joomdev.com>
+ */
+
+
+/* ---- Custom CSS JD ---- */
+.tour-wrap{
+	border: 1px solid #f3f3f3;
+}
+.tour-view-img{
+	position: relative;
+}
+.tour-view-img .tour-discount{
+	display: -webkit-flex; /* Safari */
+	-webkit-align-items: center; /* Safari 7.0+ */
+	display: flex;
+	align-items: center;
+	bottom: -20px;
+    position: absolute;
+    right: 15px;
+	text-align: center;
+	background: #ffe500;
+	color: #000000;
+	width: 80px;
+	height: 80px;
+	line-height: normal;
+	border-radius: 100px;
+}
+.tour-body{
+	background: #fff;
+	padding-top: 35px;
+}
+.tour-showcase-icon > img{
+	padding: 0px 15px;
+}
+.tour-showcase-icon{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f3f3f3;
+}
+.tour-showcase-see-more {
+    color: #000000;
+    display: inline-block;
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+}
+.off_percentage,.off_fixed_amount{
+	-webkit-flex: 1; /* Safari 6.1+ */
+	flex: 1;
+}
+.off_percentage span,.off_fixed_amount span{
+	font-size: 16px;
+	font-weight: 800;
+}
+.tour-title a{
+	color: #000;
+}
+.tour-title h5{
+	margin: 0px;
+}
+.tour-show-discount strong{
+	font-size: 18px;
+	font-weight: 800;
+}
+.tour-show-discount span del{
+	font-size: 12px;
+	font-weight: normal;
+}
+
+/* touraccordion */
+#touraccordion .accordion .accordion-header li{
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: 600;
+}
+#touraccordion .accordion .accordion-header li{
+	list-style-type: none;
+	position: relative;
+}
+#touraccordion .accordion .accordion-header .accordion-list{
+	padding: 0px;
+}
+#touraccordion .accordion .accordion-header li:after{
+	color: #777777;
+    content: "-";
+    float: right;
+    font-weight: bold;
+    margin-left: 5px;
+}
+#touraccordion .accordion .accordion-header li.collapsed:after{
+	color: #777777;
+	content: "+";
+	float: right;
+    font-weight: bold;
+    margin-left: 5px;
+}

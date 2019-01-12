@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field name="show_img_feature" type="radio" class="btn-group btn-group-yesno" label="COM_JDTOURSSHOWCASE_MEDIA_TYPE" default="1">
+		<option value="1">COM_JDTOURSSHOWCASE_FONTAWESOME</option>
+		<option value="2">COM_JDTOURSSHOWCASE_IMAGE</option>
+	</field>
+	<field name="icon_class" label="COM_JDTOURSSHOWCASE_SELECT_FONTAWESOME_ICON" showon="show_img_feature:1" description="COM_JDTOURSSHOWCASE_SELECT_FONTAWESOME_ICON_DESC" type="faicons" />
+	<field name="icon_img" label="COM_JDTOURSSHOWCASE_SELECT_IMAGE" showon="show_img_feature:2" description="COM_JDTOURSSHOWCASE_SELECT_IMAGE_DESC" type="media" />
+	<field name="tool_tip" label="COM_JDTOURSSHOWCASE_SELECT_TOOLTIP" description="COM_JDTOURSSHOWCASE_SELECT_TOOLTIP_DESC" type="text" />
+</form>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field name="schedule_title" filter="safehtml" type="text" label="COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_SCHEDULE_TITLE" description="COM_JDTOURSSHOWCASE_FORM_DESC_TOUR_SCHEDULE_TITLE" hint="COM_JDTOURSSHOWCASE_FORM_TOUR_SCHEDULE_TITLE_HINT"/>
+	<field name="schedule_desc" editor="|" buttons="false" filter="JComponentHelper::filterText" type="editor" label="COM_JDTOURSSHOWCASE_TOURS_SCHEDULE_DES" description="COM_JDTOURSSHOWCASE_TOURS_SCHEDULE_DES" hint="COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_SCHEDULE_TITLE"/>
+</form>

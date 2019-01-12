@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<field name="gallery_img" label="COM_JDTOURSSHOWCASE_IMAGE" description="COM_JDTOURSSHOWCASE_IMAGE" type="media" />
+</form>
