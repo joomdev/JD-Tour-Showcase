@@ -35,47 +35,54 @@ jimport('joomla.application.module.helper');
 <!-- End -->
 <!-- Tour Type -->
 <div class="row tour-details pb-5 text-center">
-		<div class="col-sm-12 col-md-3 col-lg-3">
-			<p class="m-0"><?php echo JText::_( 'Tour Type' ) ?></p>
+<div class="col-sm-12 col-md-3 col-lg-3">
+			<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_TITLE_TOURTYPES' ) ?></p>
 			<p class="m-0"><strong><?php echo $this->item->tour_type; ?></strong></p>
 		</div>
-		<div class="col-sm-12 col-md-3 col-lg-3">
-			<p class="m-0"><?php echo JText::_( 'Duration' ) ?></p>
-			<p class="m-0"><strong><?php echo  $this->item->duration; ?></strong></p>
-		</div>
-		<div class="col-sm-12 col-md-3 col-lg-3">
-			<p class="m-0"><?php echo JText::_( 'Price' ) ?> 
-			
-			<?php if($this->item->show_discount){ ?>
-			/  <?php  if($this->item->discount_type=="percentage"){	
-					echo '<span>'.$item->price_currency.$this->item->percentage. '%' .'</span>&nbsp;'.JTEXT::_('JOFF');													
-				}elseif($this->item->discount_type=="fixed_amount"){
-					echo '<span>Flat '.$item->price_currency.$this->item->fixed_amount.' </span>&nbsp;'.JTEXT::_('JOFF');
-				} ?>
-			<?php } ?>
-			</p>
-		<p class="m-0"><strong>
-				<?php if($this->item->show_discount){
+		<?php if(!empty($this->item->duration)) { ?>
+			<div class="col-sm-12 col-md-3 col-lg-3">
+				<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_TOURS_DURATION' ) ?></p>
+				<p class="m-0"><strong><?php echo  $this->item->duration; ?></strong></p>
+			</div>
+		<?php } ?>
+		<?php if(!empty($this->item->price)) { ?>
+			<div class="col-sm-12 col-md-3 col-lg-3">
+				<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_PRICE' ) ?> 
+				
+				<?php if($this->item->show_discount){ ?>
+				/  <?php  if($this->item->discount_type=="percentage"){	
+						echo '<span>'.$this->item->percentage. '%' .'</span>&nbsp;'.JTEXT::_('JOFF');	
+						
+					}elseif($this->item->discount_type=="fixed_amount"){
+						echo '<span>Flat '.$this->item->price_currency.$this->item->fixed_amount.' </span>&nbsp;'.JTEXT::_('JOFF');
+					}
+					?>
+
+				<?php } ?>
+				</p>
+
+				<p class="m-0"><strong>
+					<?php if($this->item->show_discount){
 					if($this->item->discount_type=="percentage"){
 						$percentage =  (($this->item->price*$this->item->percentage)/100);
-						echo $item->price_currency.$price =  ($this->item->price - $percentage).'&nbsp;';
-
-						echo '<strike>'.$item->price_currency.$this->item->price.'</strike> &nbsp;';
-
+						echo $this->item->price_currency.$price =  ($this->item->price - $percentage).'&nbsp;';
+						echo '<strike>'.$this->item->price_currency.$this->item->price.'</strike> &nbsp;';
 					}elseif($this->item->discount_type=="fixed_amount"){
 						$fixed_amount = $this->item->fixed_amount;
-						echo $item->price_currency.$price = ($this->item->price - $fixed_amount);
-
-						echo '<strike>'.$item->price_currency.$this->item->price.'</strike>';
-
+						echo $this->item->price_currency.$price = ($this->item->price - $fixed_amount);
+						echo '<strike>'.$this->item->price_currency.$this->item->price.'</strike>';
 					}
-				}else { echo '$'.$this->item->price; } ?></strong>
-			</p>
-		</div>
-		<div class="col-sm-12 col-md-3 col-lg-3">
-			<p class="m-0"><?php echo JText::_( 'Destination' ) ?></p>
-			<p class="m-0"><strong><?php echo  $this->item->destination; ?></strong></p>
-		</div>
+				}else { echo $this->item->price_currency.$this->item->price; } ?></strong>
+				</p>
+			</div>
+		<?php } ?>
+
+		<?php if(!empty($this->item->destination)) { ?>
+			<div class="col-sm-12 col-md-3 col-lg-3">
+				<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_DESTINATION' ) ?></p>
+				<p class="m-0"><strong><?php echo  $this->item->destination; ?></strong></p>
+			</div>
+		<?php }  ?>
 </div>
 <!-- End -->
 <!-- Slider -->
@@ -87,7 +94,7 @@ jimport('joomla.application.module.helper');
 				<div class="carousel-inner">
 						<?php $i=1; foreach($galleis as $gallery) {?>
 							<div class="carousel-item <?php echo ($i==1) ? 'active' : '' ?>">
-								<img class="d-block w-100" src="<?php  echo $gallery->gallery_img; ?>" alt="First slide">
+								<img class="d-block w-100" src="<?php  echo $gallery->gallery_img; ?>">
 							</div>
 						<?php $i++; } ?>
 				<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

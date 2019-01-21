@@ -19,14 +19,10 @@ require_once dirname(__FILE__) . '/helper.php';
 
 if($app->input->get('option')=='com_jdtoursshowcase' && in_array($app->input->get('view','none'), $params->get('hide_on', array()))) return;
 
-if (!defined('DS')) {
-	define('DS', DIRECTORY_SEPARATOR);
-}
-
 // Include the syndicate functions only once
-require_once (dirname(__FILE__).DS.'helper.php');
-require_once(JPATH_BASE.DS.'components'.DS.'com_jdtoursshowcase'.DS.'helpers'.DS.'jdtoursshowcase.php');
-require_once(JPATH_BASE.DS.'components'.DS.'com_jdtoursshowcase'.DS.'helpers'.DS.'route.php');
+require_once (dirname(__FILE__).DIRECTORY_SEPARATOR.'helper.php');
+require_once(JPATH_BASE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_jdtoursshowcase'.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'jdtoursshowcase.php');
+require_once(JPATH_BASE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_jdtoursshowcase'.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'route.php');
 
 
 $layout = $params->get('layout', 'default');
