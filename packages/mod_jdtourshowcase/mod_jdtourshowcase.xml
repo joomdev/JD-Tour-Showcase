@@ -7,10 +7,10 @@
    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
    <authorEmail>info@joomdev.com</authorEmail>
    <authorUrl>www.joomdev.com</authorUrl>
-   <version>1.0</version>
+   <version>1.1</version>
    <description>MOD_JDTOURSHOWCASE_XML_DESCRIPTION</description>
    <updateservers>
-		<server type="extension" name="mod_jdtourshowcase" priority="1">https://cdn.joomdev.com/extensionupdates/mod_jdtourshowcase.xml</server>
+		<server type="extension" name="mod_jdtourshowcase" priority="1">https://cdn.joomdev.com/extensionupdates/jd_tour/mod_jdtourshowcase.xml</server>
 	</updateservers>
    <files>
       <filename module="mod_jdtourshowcase">mod_jdtourshowcase.php</filename>

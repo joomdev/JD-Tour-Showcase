@@ -3,42 +3,47 @@
 /**
  * @package	JD profiler Module
  * @subpackage  mod_jdprofiler
- * @author	JoomDev
- * @copyright	Copyright (C) 2008 -  2019 Joomdev.com. All rights reserved
+ * @author	Joomdev.com
+ * @copyright	Copyright (C) 2008 - 2019 Joomdev.com. All rights reserved
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
-
 // Style Sheet
-if($params->get('load_bootstrap', 1)){
-	$doc->addStyleSheet('https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
-}
-if($params->get('load_fontawesome', 1)){
-	$doc->addStyleSheet('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
-}
+$doc->addStyleSheet(JURI::root().'media/mod_jdprofiler/assets/css/jd-profile-style.css');
 
-class modJdToursrHelper {
-    public function tours($tour,$limit,$order){
-            $db = JFactory::getDBO();
-            $query = $db->getQuery(true);
-            $query->select('*');
-            $query->from('#__jdtoursshowcase_tours');
-            $query->Where($db->quoteName('state') . ' = '. $db->quote(1));
-            $query->Where($db->quoteName('tour_type') . ' = '. $db->quote($tour));
-            if($order=="random"){
+class modJdprofilerHelper {
+    public function profiles($team,$limit,$sort,$order){
+        $db = JFactory::getDBO();
+        $query = $db->getQuery(true);
+        $query->select('*');
+        $query->from('#__jdprofiler_profiles');
+        $query->Where($db->quoteName('state') . ' = '. $db->quote(1));
+        $query->Where($db->quoteName('team') . ' = '. $db->quote($team));
+        $user = JFactory::getUser();
+		$accessLevel = $user->groups;   
+		if($accessLevel){ 
+			$isAdmin = $user->get('isRoot');
+			if ($isAdmin) {
+				 $accessLevel[] = '1,6';
+			}else{
+				 $accessLevel[] = '1';
+			}
+		 $accessLevel = array_unique($accessLevel);
+		  $query->where('access IN ( '.implode(",", $accessLevel).')');
+	  }
+        if($order=="random"){
             $query->order('RAND() LIMIT '.$limit); 
-            }elseif($order=="ordering"){
-                $query->order($order);
-                $query->setLimit($limit);
-            }
-            else{
-                $query->order($order);
-                $query->setLimit($limit);
-            }
-             $query;
-            $db->setQuery($query);
-            $results = $db->loadObjectList();
-         return $results;
-     }
+        }elseif($order=="ordering"){
+            $query->order($order);
+            $query->setLimit($limit);
+        }
+        else{
+            $query->order($order.' '.$sort);
+            $query->setLimit($limit);
+        }
+        $db->setQuery($query);
+        $results = $db->loadObjectList();
+        return $results;
+    }
 }
