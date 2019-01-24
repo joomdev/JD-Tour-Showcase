@@ -7,7 +7,7 @@
     <author>JoomDev</author>
     <authorEmail>info@joomdev.com</authorEmail>
     <authorUrl>http://</authorUrl>
-    <version>1.0</version>
+    <version>1.1</version>
     <description>JD Tours Showcase description.</description>
     
     <install> <!-- Runs on install -->
@@ -25,7 +25,9 @@
             <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
         </sql>
     </uninstall>
-
+    <updateservers>
+        <server type="extension" name="com_jdtoursshowcase" priority="1">https://cdn.joomdev.com/extensionupdates/jd_tour/com_jdtoursshowcase.xml</server>
+    </updateservers>
     <files folder="site">
         <filename>index.html</filename>
         <filename>jdtoursshowcase.php</filename>
