@@ -100,17 +100,17 @@ $db = JFactory::getDbo();
 								</div>
 							<?php } ?>
 							<?php $features = json_decode($item->feature);
-								if(!empty($features)){
-									foreach($features as $feature){ ?>
+								if(!empty($features)){ ?>
 										<div class="tour-showcase-icon">
-											<?php  if($feature->show_img_feature == 1){ ?>
-												<i class="<?php echo $feature->icon_class; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>" aria-hidden="true"></i>
-											<?php } ?>
-											<?php  if($feature->show_img_feature == 2){ ?>
-												<img src="<?php echo $feature->icon_img; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>" aria-hidden="true"/>
-											<?php } ?>
-										</div>
-									<?php } ?>
+												<?php foreach($features as $feature){ ?>
+														<?php  if($feature->show_img_feature == 1){ ?>
+															<i class="<?php echo $feature->icon_class; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>" aria-hidden="true"></i>
+														<?php } ?>
+														<?php  if($feature->show_img_feature == 2){ ?>
+															<img src="<?php echo $feature->icon_img; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>" aria-hidden="true"/>
+														<?php } ?>
+												<?php } ?>
+											</div>
 								<?php } ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>" class="tour-showcase-see-more">
 								<?php echo JTEXT::_('COM_JDTOURSSHOWCASE_SEE_MORE'); ?> <i class="fa fa-angle-right pl-2" style="color: #ff2424;" aria-hidden="true"></i>
