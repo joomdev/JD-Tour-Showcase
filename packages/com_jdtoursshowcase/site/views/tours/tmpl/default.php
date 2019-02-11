@@ -63,7 +63,7 @@ $db = JFactory::getDbo();
 					<?php  } ?> 	
 					<div class="tour-body text-center">
 						<div class="tour-title">
-							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>" target="1">
+							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>">
 								<h5><?php echo $this->escape($item->title); ?></h5>
 							</a>
 						</div>

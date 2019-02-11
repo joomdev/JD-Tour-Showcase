@@ -36,7 +36,7 @@ $JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowca
 				<?php  } ?>
 				<div class="tour-body text-center">
 					<div class="tour-title">
-						<a href="<?php echo JDtourRoute::getTourRoute($item->id); ?>" target="1">
+						<a href="<?php echo JDtourRoute::getTourRoute($item->id); ?>">
 							<h5><?php echo ($item->title); ?></h5>
 						</a>
 					</div>
