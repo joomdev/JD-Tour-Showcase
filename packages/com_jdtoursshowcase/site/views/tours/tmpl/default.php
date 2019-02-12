@@ -120,11 +120,11 @@ $db = JFactory::getDbo();
 			</div>
 			
 		
-				<?php $canEdit = $user->authorise('core.edit', 'com_jdtoursshowcase'); ?>
+			<?php $canEdit = $user->authorise('core.edit', 'com_jdtoursshowcase'); ?>
 
-				<?php if (!$canEdit && $user->authorise('core.edit.own', 'com_jdtoursshowcase')): ?>
-					<?php $canEdit = JFactory::getUser()->id == $item->created_by; ?>
-				<?php endif; ?>
+			<?php if (!$canEdit && $user->authorise('core.edit.own', 'com_jdtoursshowcase')): ?>
+				<?php $canEdit = JFactory::getUser()->id == $item->created_by; ?>
+			<?php endif; ?>
 
 		<?php endforeach; ?>
 		<div class="col-12">
