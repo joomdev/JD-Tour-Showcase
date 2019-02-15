@@ -117,6 +117,28 @@
                description="JFIELD_ALT_MODULE_LAYOUT_DESC"
                default="default"
             />
+            <field
+               name="load_bootstrap"
+               type="radio"
+               label="MOD_JDTOURSHOWCASE_LOAD_BOOTSTRAPL"
+               description="MOD_JDTOURSHOWCASE_LOAD_BOOTSTRAP_DESC"
+               default="0"
+               class="btn-group"
+            >
+               <option value="1">JYES</option>
+               <option value="0">JNO</option>
+            </field>   
+            <field
+               name="load_fontawesome"
+               type="radio"
+               label="MOD_JDTOURSHOWCASE_LOAD_FONTAWESOME"
+               description="MOD_JDTOURSHOWCASE_LOAD_FONTAWESOME_DESC"
+               default="0"
+               class="btn-group"
+            >
+               <option value="1">JYES</option>
+               <option value="0">JNO</option>
+            </field>
              <field name="moduleclass_sfx" type="textarea" label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL" description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" rows="3"/>
          </fieldset>
       </fields>
