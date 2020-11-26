@@ -123,6 +123,11 @@ class JdtoursshowcaseModelTours extends JModelList
 	 */
 	protected function getListQuery()
 	{
+		$item = JFactory::getApplication()->getMenu()->getActive();
+		$ordering = 'recent';
+		if ($item) {
+			$ordering = $item->params->get('ordering', 'recent');
+		}
             // Create a new query object.
             $db    = $this->getDbo();
             $query = $db->getQuery(true);
@@ -179,8 +184,27 @@ class JdtoursshowcaseModelTours extends JModelList
 		}
 
             // Add the list ordering clause.
-            $orderCol  = $this->state->get('list.ordering', "a.id");
-            $orderDirn = $this->state->get('list.direction', "ASC");
+            switch ($ordering) {
+			case 'recent':
+				$orderCol  = "a.id";
+				$orderDirn = "DESC";
+				break;
+			case 'oldest':
+				$orderCol  = "a.id";
+				$orderDirn = "ASC";
+				break;
+			case 'mosthits':
+				$orderCol  = "a.hits";
+				$orderDirn = "DESC";
+				break;
+			case 'leasthits':
+				$orderCol  = "a.hits";
+				$orderDirn = "ASC";
+				break;
+			default:
+				$orderCol  = $this->state->get('list.ordering', "a.id");
+				$orderDirn = $this->state->get('list.direction', "ASC");
+		}
 
             if ($orderCol && $orderDirn)
             {
