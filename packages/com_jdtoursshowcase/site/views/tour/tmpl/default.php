@@ -35,12 +35,12 @@ jimport('joomla.application.module.helper');
 <!-- End -->
 <!-- Tour Type -->
 <div class="row tour-details pb-5 text-center">
-<div class="col-sm-12 col-md-3 col-lg-3">
+<div class="col-sm-12 col-md-2 col-lg-2">
 			<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_TITLE_TOURTYPES' ) ?></p>
 			<p class="m-0"><strong><?php echo $this->item->tour_type; ?></strong></p>
 		</div>
 		<?php if(!empty($this->item->duration)) { ?>
-			<div class="col-sm-12 col-md-3 col-lg-3">
+			<div class="col-sm-12 col-md-2 col-lg-2">
 				<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_TOURS_DURATION' ) ?></p>
 				<p class="m-0"><strong><?php echo  $this->item->duration; ?></strong></p>
 			</div>
@@ -50,7 +50,7 @@ jimport('joomla.application.module.helper');
 				<p class="m-0"><?php echo JText::_( 'COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_PRICE' ) ?> 
 				
 				<?php if($this->item->show_discount){ ?>
-				/  <?php  if($this->item->discount_type=="percentage"){	
+					<?php  if($this->item->discount_type=="percentage"){	
 						echo '<span>'.$this->item->percentage. '%' .'</span>&nbsp;'.JTEXT::_('JOFF');	
 						
 					}elseif($this->item->discount_type=="fixed_amount"){
