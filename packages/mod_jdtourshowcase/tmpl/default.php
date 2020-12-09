@@ -99,7 +99,7 @@ $JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowca
 		<div class="col-12 d-flex justify-content-center">
 			<a href="<?php echo JRoute::_(" index.php?Itemid={$button_link}"); ?>">
 				<button class="btn btn-outline-primary">
-					<?php echo $params->get('button','See More'); ?>
+					<?php echo $params->get('button', 'See More'); ?>
 				</button>
 			</a>
 		</div>

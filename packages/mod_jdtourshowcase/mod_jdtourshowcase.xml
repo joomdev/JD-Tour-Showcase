@@ -96,6 +96,19 @@
             </field>
 
             <field
+               name="show_button"
+               type="radio"
+               label="MOD_JDTOURSHOWCASE_SHOW_BUTTON_LBL"
+               description="MOD_JDTOURSHOWCASE_SHOW_BUTTON_DESC"
+               default="0"
+               class="btn-group"
+            >
+               <option value="1">JYES</option>
+               <option value="0">JNO</option>
+            </field>
+
+            <field
+               showon="show_button:1"
                name="button"
                type="text"
                filter="safehtml"
@@ -104,6 +117,7 @@
                default="See More"
             />
             <field 
+               showon="show_button:1"
                name="button_link"
                type="menuitem"
                label="SELECT_A_MENU_LABEL"
