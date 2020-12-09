@@ -5,7 +5,7 @@
             <![CDATA[COM_JDTOURSSHOWCASE_TITLE_ITEM_VIEW_TOUR_DESC]]>
         </message>
     </layout>
-    <fields name="params">
+    <!-- <fields name="params">
         <fieldset 
             name="basic"
             label="COM_JDTOURSSHOWCASE_FIELDSET_ITEM_ID_SELECT_LABEL">
@@ -19,6 +19,21 @@
                 require="true"
                 description="JGLOBAL_SHOW_TITLE_DESC">
             </field>
+        </fieldset>
+    </fields> -->
+
+    <fields name="request" addfieldpath="administrator/components/com_jdtoursshowcase/models/fields">
+        <fieldset name="request">
+            <field
+                    name="id"
+                    query="SELECT  * FROM #__jdtoursshowcase_tours where state =1 ORDER BY `id`"
+                    type="sql"
+                    key_field="id" 
+                    value_field="title"
+                    label="COM_JDTOURSSHOWCASE_ITEM_ID_SELECT_LABEL"
+                    require="true"
+                    description="JGLOBAL_SHOW_TITLE_DESC">
+                </field>
         </fieldset>
     </fields>
 </metadata>
