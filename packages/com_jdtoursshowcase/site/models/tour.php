@@ -65,12 +65,6 @@ class JdtoursshowcaseModelTour extends JModelItem
 
 		// Load the parameters.
 		$params       = $app->getParams();
-		$params_array = $params->toArray();
-
-		if (isset($params_array['item_id']))
-		{
-			$this->setState('tour.id', $params_array['item_id']);
-		}
 
 		$this->setState('params', $params);
 	}
