@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS" option="View">
-        <message>
-                        <![CDATA[COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS_DESC]]>
-        </message>
+		<message>
+			<![CDATA[COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS_DESC]]>
+		</message>
 	</layout>
+	<fields name="params">
+		<fieldset name="basic" label="Tour(s) Options">
+			<field name="ordering" type="list" label="Display Order By" default="recent">
+				<option value="recent">Most Recent First</option>
+				<option value="oldest">Oldest First</option>
+				<option value="mosthits">Most Hits</option>
+				<option value="leasthits">Least Hits</option>
+			</field>
+		</fieldset>
+	</fields>
 </metadata>
