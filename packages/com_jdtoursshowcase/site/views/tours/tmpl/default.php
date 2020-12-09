@@ -38,12 +38,13 @@ JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/h
 	<div class="row">
 		<?php foreach ($this->items as $i => $item) :  ?>
 			<div class="col-lg-4 d-md-flex mb-4 jd-tour-item <?php echo ($i==0) ? 'firstItem': ''; ?><?php echo ($i==array_key_last($this->items))? 'LastItem': '';  ?>">
-				
+				<?php
+				$link = JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id);
+				?>
 				<div class="tour-wrap">
 					<div class="tour-view-img">
 						<?php if(!empty($item->tour_image)){ ?>
-							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>">	<img src="<?php echo $item->tour_image; ?>" alt="<?php echo $item->title;?>" class="card-img-top img-fluid">
-							</a>
+							<a href="<?php echo $link; ?>">	<img src="<?php echo $item->tour_image; ?>" alt="<?php echo $item->title;?>" class="card-img-top img-fluid"></a>
 						<?php } ?>
 						<?php if($item->show_discount){ ?>
 							<div class="tour-discount">
