@@ -34,10 +34,10 @@
                 multiple="true"
                 type="sql"
                 query="SELECT id, title FROM #__jdtoursshowcase_tour_type  where state=1"
-                label="Select Tour Type"
+                label="MOD_JDTOURSHOWCASE_TOUR_TYPE_LBL"
+                description="MOD_JDTOURSHOWCASE_TOUR_TYPE_DESC"
                 key_field="id"
                 value_field="title"
-                description="Select Tour Type"
             />
    
             <field

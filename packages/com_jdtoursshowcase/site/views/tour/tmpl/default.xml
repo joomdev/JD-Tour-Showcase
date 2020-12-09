@@ -2,7 +2,7 @@
 <metadata>
     <layout title="COM_JDTOURSSHOWCASE_TITLE_ITEM_VIEW_TOUR" option="View">
         <message>
-                        <![CDATA[COM_JDTOURSSHOWCASE_TITLE_ITEM_VIEW_TOUR_DESC]]>
+            <![CDATA[COM_JDTOURSSHOWCASE_TITLE_ITEM_VIEW_TOUR_DESC]]>
         </message>
     </layout>
     <fields name="params">
