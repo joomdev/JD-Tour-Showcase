@@ -34,19 +34,16 @@ JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/h
 jimport('joomla.application.component.helper');
 
 //echo "<pre>";
-$jinput 	   = JFactory::getApplication()->input;
-$app 		   = JFactory::getApplication();
-$currentMenuId = $app->getMenu()->getActive()->id;
-$menuitem      = $app->getMenu()->getItem($currentMenuId);
-$mparams 	   = $menuitem->query;
+$app 		= JFactory::getApplication('com_jdtoursshowcase');
+$params     = $app->getParams();
+$mparams 	= $params->toArray();
 
-//print_r($mparams);
-//Global [ Menu Level ] Grid and Order By Settings 
-//Component [ Option Level ] Grid and Order By Settings
-
-$params  	= JComponentHelper::getParams('com_jdtoursshowcase');
-$cols 		= (int)$params->get('grid_coloumns','1','CMD');
-
+  if(!empty($mparams['grid_coloumns'])){
+	$cols 		   = $mparams['grid_coloumns'];
+}else{
+	$params  	= JComponentHelper::getParams('com_jdtoursshowcase');
+	$cols 		= (int)$params->get('grid_coloumns','1','CMD');
+} 
 ?>
 
 <?php if(!empty($this->items)) {?>
@@ -106,11 +103,11 @@ $cols 		= (int)$params->get('grid_coloumns','1','CMD');
 									<?php  if($item->show_discount){ ?> <span> <del><?php echo  $item->price_currency.$item->price; ?></del>  <?php }  ?>
 									<?php  if(!$item->show_discount and !empty($item->price)) { ?> <?php echo  $item->price_currency.$item->price; ?><br> </span> <?php }  ?>
 									
-									<!-- <?php #if (!empty($item->price_postfix)) { ?>
+									<?php if (!empty($item->price_postfix)) { ?>
 										<p class="tour-person">
-											<span class="text-muted"><?php #echo $item->price_postfix; ?></span>
+											<span class="text-muted"><?php echo $item->price_postfix; ?></span>
 										</p>
-									<?php #} ?> -->
+									<?php } ?>
 								</div>
 							<?php } ?>
 							<?php $features = json_decode($item->feature); ?>

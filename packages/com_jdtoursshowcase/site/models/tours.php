@@ -206,25 +206,41 @@ class JdtoursshowcaseModelTours extends JModelList
 			//Global ordering parameters
 			$jinput = JFactory::getApplication()->input;
 			$app = JFactory::getApplication();
-			$currentMenuId = $app->getMenu()->getActive()->id;
-			$menuitem   = $app->getMenu()->getItem($currentMenuId);
-			$mparams = $menuitem->query; 
+
+			$OrderByCol = 'a.id';
+			$OrderByDir = 'ASC' ;
 			
-			//echo "<pre>";
-			//print_r($mparams);
+			$app 		= JFactory::getApplication('com_jdtoursshowcase');
+			$params     = $app->getParams();
+			$mparams 	= $params->toArray();
 			
 			
-			
+					
 			if(isset($mparams['order']) && !empty($mparams['order'])){
-				$OrderBy = explode(" ",$mparams['order']);
-				$OrderByCol = $OrderBy[0];
-				$OrderByDir = $OrderBy[1];
+				if($mparams['order'] == 'ordering'){
+					
+					$OrderByCol = 'ordering';
+					$OrderByDir = 'ASC';
+					
+				}else{
+					$OrderBy = explode(" ",$mparams['order']);
+					$OrderByCol = $OrderBy[0];
+					$OrderByDir = $OrderBy[1];
+				}
+				
 				
 			}else{
-				$OrderByCol = 'a.id';
-				$OrderByDir = 'ASC' ;
+				$params  	= JComponentHelper::getParams('com_jdtoursshowcase');
+				$order 		= (int)$params->get('order','','RAW'); 
+				if($order == 'ordering'){
+					$OrderByCol = 'ordering';
+					$OrderByDir = 'ASC';
+				}else{
+					$OrderBy = explode(" ",$order);
+					$OrderByCol = $OrderBy[0];
+					$OrderByDir = $OrderBy[1];
+				}
 			}
-				
 			
 			// Add the list ordering clause.
 			$orderCol  = $this->state->get('list.ordering', $OrderByCol);

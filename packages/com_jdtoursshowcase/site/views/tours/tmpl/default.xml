@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <metadata>
 	<layout title="COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS" option="View">
-		<message>
-			<![CDATA[COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS_DESC]]>
-		</message>
+        <message>
+                        <![CDATA[COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS_DESC]]>
+        </message>
 	</layout>
-	<fields name="request" addfieldpath="administrator/components/com_jdtoursshowcase/models/fields">
+	<fields name="params">
 			
-			<fieldset name="request">
+			<fieldset name="basic" label="COM_JDTOURSSHOWCASE_FIELDSET_ITEM_ID_SELECT_LABEL">
 			<field name="grid_coloumns" type="list" label="MOD_JDTOURSHOWCASE_GRID_COLUMNS_LABEL" description="MOD_JDTOURSHOWCASE_GRID_COLUMNS_DESC" useglobal="true">
 				<option value="12">J1</option>
 				<option value="6">J2</option>
@@ -19,14 +19,14 @@
 			<field name="limit" type="hidden" min="1" label="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_LABEL" description="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_DESC" useglobal="true" />
 
 			<field name="order" type="list" label="MOD_JDTOURSHOWCASE_ORDER_LABEL" description="MOD_JDTOURSHOWCASE_ORDER_DESC" useglobal="true">
-				<option value="id DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
-				<option value="id ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>
-				<option value="title DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_DESC</option>
-				<option value="title ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_ASC</option>
-				<option value="hits DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_DESC</option>
-				<option value="hits ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_ASC</option>
-				<option value="ordering">MOD_JDTOURSHOWCASE_ORDER_OPTION_ORDERING</option>
+			   <option value="id DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
+               <option value="id ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>
+               <option value="title ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_DESC</option>
+               <option value="title DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_ASC</option>
+               <option value="hits DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_DESC</option>
+               <option value="hits ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_ASC</option>
+               <option value="ordering">MOD_JDTOURSHOWCASE_ORDER_OPTION_ORDERING</option>
 			</field>
 			</fieldset>
-	</fields>
+	</fields>		
 </metadata>
