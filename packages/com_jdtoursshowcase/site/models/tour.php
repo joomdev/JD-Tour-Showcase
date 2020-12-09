@@ -61,13 +61,16 @@ class JdtoursshowcaseModelTour extends JModelItem
 			Factory::getApplication()->setUserState('com_jdtoursshowcase.edit.tour.id', $id);
 		}
 
-		// Load state from the request.
-		$t_app = JFactory::getApplication('site');
-		$id = $t_app->input->getInt('id');
 		$this->setState('tour.id', $id);
 
 		// Load the parameters.
 		$params       = $app->getParams();
+		$params_array = $params->toArray();
+
+		if (isset($params_array['item_id']))
+		{
+			$this->setState('tour.id', $params_array['item_id']);
+		}
 
 		$this->setState('params', $params);
 	}
@@ -115,7 +118,7 @@ class JdtoursshowcaseModelTour extends JModelItem
 
                     
                 } 
-				}
+			}
 				
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);

@@ -125,12 +125,7 @@ jimport('joomla.application.module.helper');
 			<?php echo  $this->item->facilities_description; ?>
 		</div>
 		<?php }?> 
-	
-		<?php if(!empty($this->item->schedule_description)) { ?>
-		<div class="schedule-description pt-5">
-			<?php echo  $this->item->schedule_description; ?>
-		</div>
-		<?php }?> 
+		
 		<div class="row facilities-features py-5">
 			<?php $features = json_decode($this->item->facilities_features); ?>
 			<?php  if(!empty($features)) { ?>
@@ -150,6 +145,13 @@ jimport('joomla.application.module.helper');
 				<?php } ?>
 			<?php } ?>
 		</div>
+
+		<?php if(!empty($this->item->schedule_description)) { ?>
+		<div class="schedule-description pt-5">
+			<?php echo  $this->item->schedule_description; ?>
+		</div>
+		<?php }?> 
+		
 		<div class="tour-schedule">
 		<?php $items_accordions = json_decode($this->item->tour_schedule); ?>
 		<?php if(!empty($items_accordions)) { ?>

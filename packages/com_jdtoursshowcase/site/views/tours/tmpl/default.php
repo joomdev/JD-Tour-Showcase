@@ -30,7 +30,7 @@ $canCheckin = $user->authorise('core.manage', 'com_jdtoursshowcase');
 $canChange  = $user->authorise('core.edit.state', 'com_jdtoursshowcase');
 $canDelete  = $user->authorise('core.delete', 'com_jdtoursshowcase');
 $db = JFactory::getDbo();
-
+JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/helpers/route.php'); // Loaded the value
 
 ?>
 
@@ -99,19 +99,21 @@ $db = JFactory::getDbo();
 									<?php } ?>
 								</div>
 							<?php } ?>
-							<?php $features = json_decode($item->feature);
-								if(!empty($features)){ ?>
-										<div class="tour-showcase-icon">
-												<?php foreach($features as $feature){ ?>
-														<?php  if($feature->show_img_feature == 1){ ?>
-															<i class="<?php echo $feature->icon_class; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>" aria-hidden="true"></i>
-														<?php } ?>
-														<?php  if($feature->show_img_feature == 2){ ?>
-															<img src="<?php echo $feature->icon_img; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>" aria-hidden="true"/>
-														<?php } ?>
-												<?php } ?>
-											</div>
-								<?php } ?>
+							<?php $features = json_decode($item->feature); ?>
+								<?php if(!empty($features)){ ?>
+								<div class="tour-showcase-icon">
+									<?php foreach($features as $feature){ ?>
+										<?php  if($feature->show_img_feature == 1){ ?>
+											<i class="<?php echo $feature->icon_class; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>"
+											aria-hidden="true"></i>
+										<?php } ?>
+										<?php  if($feature->show_img_feature == 2){ ?>
+											<img src="<?php echo $feature->icon_img; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $feature->tool_tip; ?>"
+											aria-hidden="true" />
+										<?php } ?>
+									<?php } ?>
+								</div>
+							<?php } ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>" class="tour-showcase-see-more">
 								<?php echo JTEXT::_('COM_JDTOURSSHOWCASE_SEE_MORE'); ?> <i class="fa fa-angle-right pl-2" style="color: #ff2424;" aria-hidden="true"></i>
 							</a>

@@ -77,18 +77,18 @@ class JdtoursshowcaseModelTourtypes extends JModelList
 		$params = JComponentHelper::getParams('com_jdtoursshowcase');
 		$this->setState('params', $params);
 
-                parent::populateState("a.id", "ASC");
+		parent::populateState("a.id", "ASC");
 
-                $start = $app->getUserStateFromRequest($this->context . '.limitstart', 'limitstart', 0, 'int');
-                $limit = $app->getUserStateFromRequest($this->context . '.limit', 'limit', 0, 'int');
+		$start = $app->getUserStateFromRequest($this->context . '.limitstart', 'limitstart', 0, 'int');
+		$limit = $app->getUserStateFromRequest($this->context . '.limit', 'limit', 0, 'int');
 
-                if ($limit == 0)
-                {
-                    $limit = $app->get('list_limit', 0);
-                }
+		if ($limit == 0)
+		{
+			$limit = $app->get('list_limit', 0);
+		}
 
-                $this->setState('list.limit', $limit);
-                $this->setState('list.start', $start);
+		$this->setState('list.limit', $limit);
+		$this->setState('list.start', $start);
         
 	}
 
