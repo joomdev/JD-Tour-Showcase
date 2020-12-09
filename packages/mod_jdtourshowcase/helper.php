@@ -10,9 +10,6 @@
 defined('_JEXEC') or die;
 $doc = JFactory::getDocument();
 
-if ($params->get('load_bootstrap', 0)) {
-    $doc->addStyleSheet('https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css');
-}
 if ($params->get('load_fontawesome', 0)) {
     $doc->addStyleSheet('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 }
