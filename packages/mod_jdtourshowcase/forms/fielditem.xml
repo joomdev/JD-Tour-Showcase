@@ -1,0 +1,42 @@
+<form>
+   <fieldset name="fielditem" label="MOD_JDSCF_FIELDS_LBL">
+      <field
+         name="tour"
+         type="sql"
+         query="SELECT id, title FROM #__jdtoursshowcase_tours  where state=1"
+         label="Select Tour"
+         key_field="id"
+         value_field="title"
+      /> 
+
+      <field
+         name="grid_coloumns"
+         type="list"
+         label="MOD_JDTOURSHOWCASE_GRID_COLUMNS_LABEL"
+         description="MOD_JDTOURSHOWCASE_GRID_COLUMNS_DESC"
+         default="4"
+         class="btn-group btn-group-yesno"
+      >
+         <option value="12">J1</option>
+         <option value="6">J2</option>
+         <option value="4">J3</option>
+         <option value="3">J4</option>
+         <option value="2">J6</option>
+      </field>
+
+      <field
+         name="button"
+         type="text"
+         filter="safehtml"
+         label="BUTTON_TEXT_LABEL"
+         description="BUTTON_TEXT_DESCRIPTION"
+         default="See More"
+      />
+      <field 
+         name="button_link"
+         type="menuitem"
+         label="SELECT_A_MENU_LABEL" 
+         description="SELECT_A_MENU_DESCRIPTION" 
+      />
+   </fieldset>
+</form>

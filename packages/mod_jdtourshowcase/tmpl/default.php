@@ -31,7 +31,7 @@ $JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowca
 									}
 								?>
 							</div>
-						<?php  } ?>  
+						<?php } ?>
 					</div>
 				<?php  } ?>
 				<div class="tour-body text-center">
@@ -93,8 +93,15 @@ $JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowca
 		</div>
    <?php endforeach; ?>					
 </div>
-<div class="row pt-5">
-	<div class="col-12 d-flex justify-content-center">	
-		<a href="<?php echo JRoute::_("index.php?Itemid={$button_link}"); ?>"><button class="btn btn-outline-primary"><?php echo $params->get('button','See More'); ?></button></a>
+
+<?php if (!empty($tours)) { ?>
+	<div class="row pt-5">
+		<div class="col-12 d-flex justify-content-center">
+			<a href="<?php echo JRoute::_(" index.php?Itemid={$button_link}"); ?>">
+				<button class="btn btn-outline-primary">
+					<?php echo $params->get('button','See More'); ?>
+				</button>
+			</a>
+		</div>
 	</div>
-</div>
+<?php } ?>

@@ -16,6 +16,7 @@
       <filename module="mod_jdtourshowcase">mod_jdtourshowcase.php</filename>
       <folder>tmpl</folder>
       <folder>fields</folder>
+      <folder>forms</folder>
       <filename>helper.php</filename>
    </files>
     <media folder="media" destination="mod_jdtourshowcase">
@@ -30,6 +31,7 @@
          <fieldset name="basic" addfieldpath="/modules/mod_jdtourshowcase/fields">
             <field
                 name="tour"
+                multiple="true"
                 type="sql"
                 query="SELECT id, title FROM #__jdtoursshowcase_tour_type  where state=1"
                 label="Select Tour Type"
@@ -37,7 +39,6 @@
                 value_field="title"
                 description="Select Tour Type"
             />
- 
    
             <field
                name="grid_coloumns"
@@ -105,10 +106,20 @@
             <field 
                name="button_link"
                type="menuitem"
-               label="SELECT_A_MENU_LABEL" 
+               label="SELECT_A_MENU_LABEL"
                description="SELECT_A_MENU_DESCRIPTION" 
             />
+
+            <field 
+               name="fields" 
+               type="subform" 
+               formsource="/modules/mod_jdtourshowcase/forms/fielditem.xml" 
+               multiple="true" 
+               label="MOD_JDTOURSHOWCASE_SELECT_TOUR" 
+            />
+
          </fieldset>
+         
          <fieldset name="advanced">
             <field
                name="layout"

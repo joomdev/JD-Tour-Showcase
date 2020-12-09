@@ -17,12 +17,18 @@ defined('_JEXEC') or die;
 // Include the syndicate functions only once
 require_once dirname(__FILE__) . '/helper.php';
 
-if($app->input->get('option')=='com_jdtoursshowcase' && in_array($app->input->get('view','none'), $params->get('hide_on', array()))) return;
+if ($app->input->get('option') == 'com_jdtoursshowcase' && in_array($app->input->get('view', 'none'), $params->get('hide_on', array()))) {
+    return;
+}
+
+if (!defined('DS')) {
+	define('DS', DIRECTORY_SEPARATOR);
+}
 
 // Include the syndicate functions only once
-require_once (dirname(__FILE__).DIRECTORY_SEPARATOR.'helper.php');
-require_once(JPATH_BASE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_jdtoursshowcase'.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'jdtoursshowcase.php');
-require_once(JPATH_BASE.DIRECTORY_SEPARATOR.'components'.DIRECTORY_SEPARATOR.'com_jdtoursshowcase'.DIRECTORY_SEPARATOR.'helpers'.DIRECTORY_SEPARATOR.'route.php');
+require_once dirname(__FILE__) . DS . 'helper.php';
+require_once JPATH_BASE . DS . 'components' . DS . 'com_jdtoursshowcase' . DS . 'helpers' . DS . 'jdtoursshowcase.php';
+require_once JPATH_BASE . DS . 'components' . DS . 'com_jdtoursshowcase' . DS . 'helpers' . DS . 'route.php';
 
 
 $layout = $params->get('layout', 'default');
@@ -30,7 +36,14 @@ $tour = $params->get('tour', 'default');
 $limit = $params->get('limit', '');
 $sort = $params->get('sort', '');
 $order = $params->get('order', '');
- $tourClass  = new modJdToursrHelper();
- $tours = $tourClass->tours($tour,$limit,$order);
+$tourClass = new modJdToursHelper();
+$tours = $tourClass->tours($tour, $limit, $order);
+
+//single tour
+$singleTourClass = new modJdToursHelper();
+$singleTour = $params->get('fields');
+$tour_single = $singleTourClass->tour($singleTour);
+
+$tours = array_merge((array) $tours, (array) $tour_single);
          
 require JModuleHelper::getLayoutPath('mod_jdtourshowcase', $layout);
