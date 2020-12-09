@@ -38,29 +38,29 @@ $db = JFactory::getDbo();
 	<div class="row">
 		<?php foreach ($this->items as $i => $item) :  ?>
 			<div class="col-lg-4 d-md-flex mb-4 jd-tour-item <?php echo ($i==0) ? 'firstItem': ''; ?><?php echo ($i==array_key_last($this->items))? 'LastItem': '';  ?>">
-				<?php if(!empty($item->tour_image) OR ($item->show_discount)) { ?>
-					<div class="tour-wrap">
-						<div class="tour-view-img">
-							<?php if(!empty($item->tour_image)){ ?>
-								<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>">	<img src="<?php echo $item->tour_image; ?>" alt="<?php echo $item->title;?>" class="card-img-top img-fluid">
-								</a>
-							<?php } ?>
-							<?php if($item->show_discount){ ?>
-								<div class="tour-discount">
-									<?php
-										if($item->show_discount){
-											if($item->discount_type=="percentage"){	
-												echo '<div class="off_percentage"><span> '. abs($item->percentage). '%' .'</span> </br>'.JTEXT::_('JOFF').'</div>';	
-												
-											}elseif($item->discount_type=="fixed_amount"){
-												echo '<div class="off_fixed_amount"> <span>Flat '.$item->price_currency .abs($item->fixed_amount).' </span></br>'.JTEXT::_('JOFF').'</div>';
-											}
+				
+				<div class="tour-wrap">
+					<div class="tour-view-img">
+						<?php if(!empty($item->tour_image)){ ?>
+							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>">	<img src="<?php echo $item->tour_image; ?>" alt="<?php echo $item->title;?>" class="card-img-top img-fluid">
+							</a>
+						<?php } ?>
+						<?php if($item->show_discount){ ?>
+							<div class="tour-discount">
+								<?php
+									if($item->show_discount){
+										if($item->discount_type=="percentage"){	
+											echo '<div class="off_percentage"><span> '. abs($item->percentage). '%' .'</span> </br>'.JTEXT::_('JOFF').'</div>';	
+											
+										}elseif($item->discount_type=="fixed_amount"){
+											echo '<div class="off_fixed_amount"> <span>Flat '.$item->price_currency .abs($item->fixed_amount).' </span></br>'.JTEXT::_('JOFF').'</div>';
 										}
-									?>
-								</div>
-							<?php  } ?>  
-						</div>
-					<?php  } ?> 	
+									}
+								?>
+							</div>
+						<?php  } ?>  
+					</div>
+					
 					<div class="tour-body text-center">
 						<div class="tour-title">
 							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>">

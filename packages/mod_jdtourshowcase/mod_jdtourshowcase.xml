@@ -126,7 +126,7 @@
 
             <field 
                name="fields" 
-               type="subform" 
+               type="hidden" 
                formsource="/modules/mod_jdtourshowcase/forms/fielditem.xml" 
                multiple="true" 
                label="MOD_JDTOURSHOWCASE_SELECT_TOUR" 
