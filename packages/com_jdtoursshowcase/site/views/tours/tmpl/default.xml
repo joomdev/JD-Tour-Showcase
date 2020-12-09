@@ -5,14 +5,28 @@
 			<![CDATA[COM_JDTOURSSHOWCASE_TITLE_LIST_VIEW_TOURS_DESC]]>
 		</message>
 	</layout>
-	<fields name="params">
-		<fieldset name="basic" label="Tour(s) Options">
-			<field name="ordering" type="list" label="Display Order By" default="recent">
-				<option value="recent">Most Recent First</option>
-				<option value="oldest">Oldest First</option>
-				<option value="mosthits">Most Hits</option>
-				<option value="leasthits">Least Hits</option>
+	<fields name="request" addfieldpath="administrator/components/com_jdtoursshowcase/models/fields">
+			
+			<fieldset name="request">
+			<field name="grid_coloumns" type="list" label="MOD_JDTOURSHOWCASE_GRID_COLUMNS_LABEL" description="MOD_JDTOURSHOWCASE_GRID_COLUMNS_DESC" useglobal="true">
+				<option value="12">J1</option>
+				<option value="6">J2</option>
+				<option value="4">J3</option>
+				<option value="3">J4</option>
+				<option value="2">J6</option>
 			</field>
-		</fieldset>
+
+			<field name="limit" type="hidden" min="1" label="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_LABEL" description="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_DESC" useglobal="true" />
+
+			<field name="order" type="list" label="MOD_JDTOURSHOWCASE_ORDER_LABEL" description="MOD_JDTOURSHOWCASE_ORDER_DESC" useglobal="true">
+				<option value="id DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
+				<option value="id ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>
+				<option value="title DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_DESC</option>
+				<option value="title ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_ASC</option>
+				<option value="hits DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_DESC</option>
+				<option value="hits ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_ASC</option>
+				<option value="ordering">MOD_JDTOURSHOWCASE_ORDER_OPTION_ORDERING</option>
+			</field>
+			</fieldset>
 	</fields>
 </metadata>

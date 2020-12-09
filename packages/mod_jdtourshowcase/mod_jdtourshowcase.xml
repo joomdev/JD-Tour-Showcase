@@ -38,6 +38,7 @@
                 description="MOD_JDTOURSHOWCASE_TOUR_TYPE_DESC"
                 key_field="id"
                 value_field="title"
+                required="true"
             />
    
             <field

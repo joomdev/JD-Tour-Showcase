@@ -10,6 +10,7 @@
 /* ---- Custom CSS JD ---- */
 .tour-wrap{
 	border: 1px solid #f3f3f3;
+	width:inherit;
 }
 .tour-view-img{
 	position: relative;

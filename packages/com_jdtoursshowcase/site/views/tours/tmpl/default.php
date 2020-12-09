@@ -31,13 +31,28 @@ $canChange  = $user->authorise('core.edit.state', 'com_jdtoursshowcase');
 $canDelete  = $user->authorise('core.delete', 'com_jdtoursshowcase');
 $db = JFactory::getDbo();
 JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/helpers/route.php'); // Loaded the value
+jimport('joomla.application.component.helper');
+
+//echo "<pre>";
+$jinput 	   = JFactory::getApplication()->input;
+$app 		   = JFactory::getApplication();
+$currentMenuId = $app->getMenu()->getActive()->id;
+$menuitem      = $app->getMenu()->getItem($currentMenuId);
+$mparams 	   = $menuitem->query;
+
+//print_r($mparams);
+//Global [ Menu Level ] Grid and Order By Settings 
+//Component [ Option Level ] Grid and Order By Settings
+
+$params  	= JComponentHelper::getParams('com_jdtoursshowcase');
+$cols 		= (int)$params->get('grid_coloumns','1','CMD');
 
 ?>
 
 <?php if(!empty($this->items)) {?>
 	<div class="row">
 		<?php foreach ($this->items as $i => $item) :  ?>
-			<div class="col-lg-4 d-md-flex mb-4 jd-tour-item <?php echo ($i==0) ? 'firstItem': ''; ?><?php echo ($i==array_key_last($this->items))? 'LastItem': '';  ?>">
+			<div class="col-lg-<?php echo $cols?> d-md-flex mb-4 jd-tour-item <?php echo ($i==0) ? 'firstItem': ''; ?><?php echo ($i==array_key_last($this->items))? 'LastItem': '';  ?>">
 				<?php
 				$link = JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id);
 				?>
@@ -48,16 +63,15 @@ JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/h
 						<?php } ?>
 						<?php if($item->show_discount){ ?>
 							<div class="tour-discount">
-								<?php
-									if($item->show_discount){
-										if($item->discount_type=="percentage"){	
-											echo '<div class="off_percentage"><span> '. abs($item->percentage). '%' .'</span> </br>'.JTEXT::_('JOFF').'</div>';	
-											
-										}elseif($item->discount_type=="fixed_amount"){
-											echo '<div class="off_fixed_amount"> <span>Flat '.$item->price_currency .abs($item->fixed_amount).' </span></br>'.JTEXT::_('JOFF').'</div>';
-										}
+							<?php
+								if ($item->show_discount) {
+									if ($item->discount_type == "percentage") {
+										echo '<div class="off_percentage"><span> ' . abs($item->percentage) . '%' . '</span> </br>' . JTEXT::_('JOFF') . '</div>';
+									} elseif ($item->discount_type == "fixed_amount") {
+										echo '<div class="off_fixed_amount"> <span>Flat ' . $item->price_currency . abs($item->fixed_amount) . ' </span></br>' . JTEXT::_('JOFF') . '</div>';
 									}
-								?>
+								}
+							?>
 							</div>
 						<?php  } ?>  
 					</div>
@@ -76,14 +90,13 @@ JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/h
 									<?php if($item->show_discount) { ?>
 										<strong>
 											<?php
-												if($item->show_discount){
-													if($item->discount_type=="percentage"){
-														$percentage =  (($item->price*abs($item->percentage))/100);
-														echo $item->price_currency.$price =  ($item->price - $percentage);
-														
-													}elseif($item->discount_type=="fixed_amount"){
+												if ($item->show_discount) {
+													if ($item->discount_type == "percentage") {
+														$percentage = (($item->price * abs($item->percentage)) / 100);
+														echo $item->price_currency . $price = ($item->price - $percentage);
+													} elseif ($item->discount_type == "fixed_amount") {
 														$fixed_amount = $item->fixed_amount;
-														echo $item->price_currency.$price = ($item->price - abs($item->fixed_amount));
+														echo $item->price_currency . $price = ($item->price - abs($item->fixed_amount));
 													}
 												}
 											?>
@@ -93,11 +106,11 @@ JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/h
 									<?php  if($item->show_discount){ ?> <span> <del><?php echo  $item->price_currency.$item->price; ?></del>  <?php }  ?>
 									<?php  if(!$item->show_discount and !empty($item->price)) { ?> <?php echo  $item->price_currency.$item->price; ?><br> </span> <?php }  ?>
 									
-									<?php if(!empty($item->price_postfix)) { ?>
+									<!-- <?php #if (!empty($item->price_postfix)) { ?>
 										<p class="tour-person">
-											<span class="text-muted"><?php echo $item->price_postfix; ?></span>
+											<span class="text-muted"><?php #echo $item->price_postfix; ?></span>
 										</p>
-									<?php } ?>
+									<?php #} ?> -->
 								</div>
 							<?php } ?>
 							<?php $features = json_decode($item->feature); ?>
@@ -131,7 +144,7 @@ JLoader::register('JDtourRoute', JPATH_SITE . '/components/com_jdtoursshowcase/h
 
 		<?php endforeach; ?>
 		<div class="col-12">
-				<?php //echo isset($this->items[0]) ? count(get_object_vars($this->items[0])) : 10; ?> <?php echo $this->pagination->getListFooter(); ?>
+			<?php echo $this->pagination->getListFooter(); ?>
 		</div>
 <?php } else { ?>
 

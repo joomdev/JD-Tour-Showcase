@@ -46,7 +46,3 @@ CREATE TABLE IF NOT EXISTS `#__jdtoursshowcase_tour_type` (
 `title` VARCHAR(255)  NOT NULL ,
 PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8mb4_unicode_ci;
-
-
-INSERT INTO `#__jdtoursshowcase_tour_type` (`id`, `ordering`, `state`, `checked_out`, `checked_out_time`, `created_by`, `modified_by`, `title`)
- VALUES (NULL, '1', '1', '0', '', 'NULL', 'NULL', 'uncategorized');

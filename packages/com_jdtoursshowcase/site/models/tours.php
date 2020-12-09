@@ -155,10 +155,7 @@ class JdtoursshowcaseModelTours extends JModelList
 		$query->join('LEFT', '#__jdtoursshowcase_tour_type AS `tour_type` ON `tour_type`.id = a.`tour_type`');
 		//$query->join('LEFT', 'FIND_IN_SET(#__jdtoursshowcase_tour_type.id, a.`tour_type`)');
             
-		if (!Factory::getUser()->authorise('core.edit', 'com_jdtoursshowcase'))
-		{
-			$query->where('a.state = 1');
-		}
+		$query->where('a.state = 1');
 
             // Filter by search in title
             $search = $this->getState('filter.search');
@@ -205,6 +202,33 @@ class JdtoursshowcaseModelTours extends JModelList
 						$orderCol  = $this->state->get('list.ordering', "a.id");
 						$orderDirn = $this->state->get('list.direction', "ASC");
 				}
+
+			//Global ordering parameters
+			$jinput = JFactory::getApplication()->input;
+			$app = JFactory::getApplication();
+			$currentMenuId = $app->getMenu()->getActive()->id;
+			$menuitem   = $app->getMenu()->getItem($currentMenuId);
+			$mparams = $menuitem->query; 
+			
+			//echo "<pre>";
+			//print_r($mparams);
+			
+			
+			
+			if(isset($mparams['order']) && !empty($mparams['order'])){
+				$OrderBy = explode(" ",$mparams['order']);
+				$OrderByCol = $OrderBy[0];
+				$OrderByDir = $OrderBy[1];
+				
+			}else{
+				$OrderByCol = 'a.id';
+				$OrderByDir = 'ASC' ;
+			}
+				
+			
+			// Add the list ordering clause.
+			$orderCol  = $this->state->get('list.ordering', $OrderByCol);
+			$orderDirn = $this->state->get('list.direction', $OrderByDir);
 
             if ($orderCol && $orderDirn)
             {
