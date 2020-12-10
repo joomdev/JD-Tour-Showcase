@@ -8,7 +8,7 @@
 	<fields name="params">
 			
 			<fieldset name="basic" label="COM_JDTOURSSHOWCASE_FIELDSET_ITEM_ID_SELECT_LABEL">
-			<field name="grid_coloumns" type="list" label="MOD_JDTOURSHOWCASE_GRID_COLUMNS_LABEL" description="MOD_JDTOURSHOWCASE_GRID_COLUMNS_DESC" useglobal="true">
+			<field name="grid_coloumns" type="list" label="COM_JDTOURSHOWCASE_GRID_COLUMNS_LABEL" description="COM_JDTOURSHOWCASE_GRID_COLUMNS_DESC" useglobal="true">
 				<option value="12">J1</option>
 				<option value="6">J2</option>
 				<option value="4">J3</option>
@@ -16,16 +16,16 @@
 				<option value="2">J6</option>
 			</field>
 
-			<field name="limit" type="hidden" min="1" label="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_LABEL" description="MOD_JDTOURSHOWCASE_DISPLAY_PROFILE_DESC" useglobal="true" />
+			<field name="limit" type="hidden" min="1" label="COM_JDTOURSHOWCASE_DISPLAY_PROFILE_LABEL" description="COM_JDTOURSHOWCASE_DISPLAY_PROFILE_DESC" useglobal="true" />
 
-			<field name="order" type="list" label="MOD_JDTOURSHOWCASE_ORDER_LABEL" description="MOD_JDTOURSHOWCASE_ORDER_DESC" useglobal="true">
-			   <option value="id DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
-               <option value="id ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>
-               <option value="title ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_DESC</option>
-               <option value="title DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_ASC</option>
-               <option value="hits DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_DESC</option>
-               <option value="hits ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_HITS_ASC</option>
-               <option value="ordering">MOD_JDTOURSHOWCASE_ORDER_OPTION_ORDERING</option>
+			<field name="order" type="list" label="COM_JDTOURSHOWCASE_ORDER_LABEL" description="COM_JDTOURSHOWCASE_ORDER_DESC" useglobal="true">
+			   <option value="id DESC">COM_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
+               <option value="id ASC">COM_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>
+               <option value="title ASC">COM_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_DESC</option>
+               <option value="title DESC">COM_JDTOURSHOWCASE_ORDER_OPTION_ALPHABETICALLY_ASC</option>
+               <option value="hits DESC">COM_JDTOURSHOWCASE_ORDER_OPTION_HITS_DESC</option>
+               <option value="hits ASC">COM_JDTOURSHOWCASE_ORDER_OPTION_HITS_ASC</option>
+               <option value="ordering">COM_JDTOURSHOWCASE_ORDER_OPTION_ORDERING</option>
 			</field>
 			</fieldset>
 	</fields>		
