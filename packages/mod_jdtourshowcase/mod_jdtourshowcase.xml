@@ -46,8 +46,8 @@
                type="list"
                label="MOD_JDTOURSHOWCASE_GRID_COLUMNS_LABEL"
                description="MOD_JDTOURSHOWCASE_GRID_COLUMNS_DESC"
-               default="4"
                class="btn-group btn-group-yesno"
+               useglobal="true"
             >
                <option value="12">J1</option>
                <option value="6">J2</option>
@@ -83,8 +83,8 @@
                type="list"
                label="MOD_JDTOURSHOWCASE_ORDER_LABEL"
                description="MOD_JDTOURSHOWCASE_ORDER_DESC"
-               default="id"
                class="btn-group btn-group-yesno"
+               useglobal="true"
             >
                <option value="id DESC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_DESC</option>
                <option value="id ASC">MOD_JDTOURSHOWCASE_ORDER_OPTION_LATEST_ASC</option>

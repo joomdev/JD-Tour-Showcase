@@ -6,11 +6,24 @@ $document = JFactory::getDocument();
 $document->addStyleSheet(JUri::root() . 'administrator/components/com_jdtoursshowcase/assets/css/jdtoursshowcase.css');
 $document->addStyleSheet(JUri::root() . 'media/com_jdtoursshowcase/css/list.css');
 $button_link=$params->get('button_link','#');
-$JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowcase();
+
+$cols = $params->get('grid_coloumns','0','CMD');
+if(!$cols){
+	$app 		= JFactory::getApplication('com_jdtoursshowcase');
+	$params     = $app->getParams();
+	$mparams 	= $params->toArray();
+
+	if(!empty($mparams['grid_coloumns'])){
+		$cols 		   = $mparams['grid_coloumns'];
+	}else{
+		$mparams  	= JComponentHelper::getParams('com_jdtoursshowcase');
+		$cols 		= (int)$mparams->get('grid_coloumns','1','CMD');
+	} 
+}
 ?>
 <div class="row">
 	<?php foreach ($tours as $i => $item) :  ?>
-   <div class="col-lg-<?php echo  $params->get('grid_coloumns',1);?> d-md-flex mb-4 jd-tour-item <?php echo ($i==0) ? 'firstItem': ''; ?><?php echo ($i==array_key_last($tours))? 'LastItem': '';  ?>">
+	<div class="col-lg-<?php echo  $cols;?> d-md-flex mb-4 jd-tour-item <?php echo ($i==0) ? 'firstItem': ''; ?><?php echo ($i==array_key_last($tours))? 'LastItem': '';  ?>">
 			
 			<div class="tour-wrap">
 				<div class="tour-view-img">
