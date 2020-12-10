@@ -73,6 +73,7 @@ $document->addStyleSheet(JUri::root() . 'media/com_jdtoursshowcase/css/form.css'
 				<?php echo $this->form->renderField('discount_type'); ?>
 				<?php echo $this->form->renderField('percentage'); ?>
 				<?php echo $this->form->renderField('fixed_amount'); ?>
+				<?php echo $this->form->renderField('button_text'); ?>
 				<?php echo $this->form->renderField('myspacer'); ?>
 				<?php echo $this->form->renderField('feature'); ?>
 			

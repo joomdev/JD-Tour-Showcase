@@ -39,6 +39,8 @@
 
 		<field name="fixed_amount" showon="discount_type:fixed_amount[AND]show_discount:1" min="0" type="number" label="COM_JDTOURSSHOWCASE_FIXED_DISCOUNT_LABEL" description="COM_JDTOURSSHOWCASE_FIXED_DISCOUNT_DESC" hint="COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_DISCOUNT_VALUE"/>
 
+		<field name="button_text" type="text" class="inputbox" generator="title" label="COM_JDTOURSSHOWCASE_FORM_DETAILS_BUTTON" hint="COM_JDTOURSSHOWCASE_FORM_DETAILS_BUTTON_DESC"/>	
+
 		<field name="feature" type="subform" formsource="administrator/components/com_jdtoursshowcase/models/forms/features.xml" multiple="true" label="COM_JDTOURSSHOWCASE_ADD_FEATURE_LABEL" description="COM_JDTOURSSHOWCASE_ADD_FEATURE_DESC" />
 
 		<field name="duration" filter="safehtml" type="text" label="COM_JDTOURSSHOWCASE_FORM_LBL_TOUR_DURATION" description="COM_JDTOURSSHOWCASE_FORM_DESC_TOUR_DURATION" hint="COM_JDTOURSSHOWCASE_FORM_TOUR_DURATION_HINT"/>
