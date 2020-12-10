@@ -87,8 +87,19 @@ $JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowca
 									<?php } ?>
 								</div>
 							<?php } ?>
+
+							<?php 	
+								$button_text ='';		
+								if(!empty($item->button_text)){
+									$button_text = $item->button_text;
+								}else{
+									$button_text = JTEXT::_('COM_JDTOURSSHOWCASE_SEE_MORE');
+								}
+							?>
+
 						<a href="<?php echo JDtourRoute::getTourRoute($item->id); ?>" class="tour-showcase-see-more">
-						<?php echo JTEXT::_('COM_JDTOURSSHOWCASE_SEE_MORE'); ?> <i class="fa fa-angle-right pl-2" style="color: #ff2424;" aria-hidden="true"></i>
+							<?php echo $button_text; ?>
+							<i class="fa fa-angle-right pl-2" style="color: #ff2424;" aria-hidden="true"></i>
 						</a>
 				</div>
 			</div>

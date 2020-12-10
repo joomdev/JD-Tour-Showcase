@@ -111,25 +111,6 @@ $mparams 	= $params->toArray();
 								</div>
 							<?php } ?>
 
-							<?php 
-								$JdtoursshowcaseHelpersJdtoursshowcase = new JdtoursshowcaseHelpersJdtoursshowcase();
-								$getReviewAvg = $JdtoursshowcaseHelpersJdtoursshowcase->getReviewAvg($item->id);
-							?>
-
-							<p class="m-0"><?php echo JText::_('COM_JDTOURSSHOWCASE_REVIEW_RATING') ?></p>
-							<p class="m-0">
-								<strong>
-									<?php for ($i = 1; $i <= 5; $i++) {
-										if ($i <=  $getReviewAvg) {
-											echo '<span class="fa fa-star review_avg"></span>';
-										} else {
-											echo '<span class="fa fa-star"></span>';
-										}
-									} //echo 'total reviews'.$getReviewCount.'out of'.$total;
-									?>
-								</strong>
-							</p>
-
 							<?php $features = json_decode($item->feature); ?>
 								<?php if(!empty($features)){ ?>
 								<div class="tour-showcase-icon">
@@ -145,6 +126,14 @@ $mparams 	= $params->toArray();
 									<?php } ?>
 								</div>
 							<?php } ?>
+							<?php 	
+								$button_text ='';		
+								if(!empty($item->button_text)){
+									$button_text = $item->button_text;
+								}else{
+									$button_text = JTEXT::_('COM_JDTOURSSHOWCASE_SEE_MORE');
+								}
+							?>
 							<a href="<?php echo JRoute::_('index.php?option=com_jdtoursshowcase&view=tour&id='.(int) $item->id); ?>" class="tour-showcase-see-more">
 								<?php echo $button_text; ?> <i class="fa fa-angle-right pl-2" style="color: #ff2424;" aria-hidden="true"></i>
 							</a>
