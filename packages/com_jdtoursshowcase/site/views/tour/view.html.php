@@ -99,9 +99,13 @@ class JdtoursshowcaseViewTour extends JViewLegacy
 			$this->params->def('page_heading', JText::_('COM_JDTOURSSHOWCASE_DEFAULT_PAGE_TITLE'));
 		}
 
-		$title = $this->params->get('page_title', '');
+		$title = $this->item->title;
 
 		if (empty($title))
+		{
+			$title = $this->params->get('page_title', '');
+		}
+		elseif (empty($title))
 		{
 			$title = $app->get('sitename');
 		}
