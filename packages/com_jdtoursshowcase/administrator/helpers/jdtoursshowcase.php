@@ -26,16 +26,17 @@ class JdtoursshowcaseHelper
 	 */
 	public static function addSubmenu($vName = '')
 	{
-		JHtmlSidebar::addEntry(
-			JText::_('COM_JDTOURSSHOWCASE_TITLE_TOURS'),
-			'index.php?option=com_jdtoursshowcase&view=tours',
-			$vName == 'tours'
-		);
-		
+
 		JHtmlSidebar::addEntry(
 			JText::_('COM_JDTOURSSHOWCASE_TITLE_TOURTYPES'),
 			'index.php?option=com_jdtoursshowcase&view=tourtypes',
 			$vName == 'tourtypes'
+		);
+		
+		JHtmlSidebar::addEntry(
+			JText::_('COM_JDTOURSSHOWCASE_TITLE_TOURS'),
+			'index.php?option=com_jdtoursshowcase&view=tours',
+			$vName == 'tours'
 		);
 
 	}

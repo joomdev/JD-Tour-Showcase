@@ -24,7 +24,11 @@ class pkg_jdtourshowcaseInstallerScript {
     * @return void
     */
    public function install($parent) {
-      $this->displayPackageWelcome($parent->get('manifest')->version);
+		if( ( ( new JVersion() )::MAJOR_VERSION ) < 4 ) {
+			$this->displayPackageWelcome($parent->get('manifest')->version);
+		} else {
+			$this->displayPackageWelcome($parent->getManifest()->version);
+		}
    }
 
    /**
@@ -42,7 +46,11 @@ class pkg_jdtourshowcaseInstallerScript {
     * @return void
     */
    function update($parent) {
-      $this->displayPackageWelcome($parent->get('manifest')->version);
+		if( ( ( new JVersion() )::MAJOR_VERSION ) < 4 ) {
+			$this->displayPackageWelcome($parent->get('manifest')->version);
+		} else {
+			$this->displayPackageWelcome($parent->getManifest()->version);
+		}
    }
 
    /**

@@ -50,8 +50,8 @@
         <menu>COM_JDTOURSSHOWCASE</menu>
         <submenu>
             
-			<menu link="option=com_jdtoursshowcase&amp;view=tours" view="tours" alt="Jdtoursshowcase/Tours">COM_JDTOURSSHOWCASE_TITLE_TOURS</menu>
             <menu link="option=com_jdtoursshowcase&amp;view=tourtypes" view="tourtypes" alt="Jdtoursshowcase/Tourtypes">COM_JDTOURSSHOWCASE_TITLE_TOURTYPES</menu>
+			<menu link="option=com_jdtoursshowcase&amp;view=tours" view="tours" alt="Jdtoursshowcase/Tours">COM_JDTOURSSHOWCASE_TITLE_TOURS</menu>
 
         </submenu>
         <files folder="administrator">

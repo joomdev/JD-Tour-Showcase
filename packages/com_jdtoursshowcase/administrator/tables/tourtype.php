@@ -29,7 +29,9 @@ class JdtoursshowcaseTabletourtype extends JTable
 	{
 		parent::__construct('#__jdtoursshowcase_tour_type', 'id', $db);
 
-		JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_jdtoursshowcase.tourtype'));
+		if( ( ( new JVersion() )::MAJOR_VERSION ) < 4 ) {
+			JTableObserverContenthistory::createObserver($this, array('typeAlias' => 'com_jdprofiler.tourtype'));
+		}
 
 		//$this->created = JFactory::getDate()->toSql();
 		$this->setColumnAlias('published', 'state');

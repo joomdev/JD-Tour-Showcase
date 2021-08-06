@@ -12,8 +12,8 @@ $doc = JFactory::getDocument();
 // Style Sheet
 $doc->addStyleSheet(JURI::root().'media/mod_jdprofiler/assets/css/jd-profile-style.css');
 
-class modJdprofilerHelper {
-    public function profiles($team,$limit,$sort,$order){
+class modJdToursrHelper {
+    public function tours($tour,$limit,$order){
         $db = JFactory::getDBO();
         $query = $db->getQuery(true);
         $query->select('*');
@@ -39,7 +39,7 @@ class modJdprofilerHelper {
             $query->setLimit($limit);
         }
         else{
-            $query->order($order.' '.$sort);
+            $query->order($order);
             $query->setLimit($limit);
         }
         $db->setQuery($query);

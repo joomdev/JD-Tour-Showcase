@@ -54,14 +54,26 @@ $JdtoursshowcaseViewTours = new JdtoursshowcaseViewTours();
 					$maxTours), 'error');	
 			
 				} ?>
-				<div class="alert jd-upgrade-pro">
-					<button data-dismiss="alert" class="close" type="button">×</button>
-					<div class="content">
-						<div class="content__inner">
-							<?php echo JText::_('COM_JDTOURSSHOWCAS_TOUR_PRO_LINE'); ?>
+
+				<?php if( ( ( new JVersion() )::MAJOR_VERSION ) < 4 ) { ?>
+					<div class="alert jd-upgrade-pro">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<div class="content">
+							<div class="content__inner">
+								<?php echo JText::_('COM_JDTOURSSHOWCAS_TOUR_PRO_LINE'); ?>
+							</div>
 						</div>
 					</div>
-				</div>
+				<?php } else { ?>
+					<joomla-alert type="success" class="alert jd-upgrade-pro" close-text="Close" dismiss="true">
+						<div class="content">
+							<div class="content__inner">
+								<?php echo JText::_('COM_JDTOURSSHOWCAS_TOUR_PRO_LINE'); ?>
+							</div>
+						</div>
+					</joomla-alert>
+				<?php } ?>
+
             <?php  echo JLayoutHelper::render('joomla.searchtools.default', array('view' => $this)); ?>
 
 			<div class="clearfix"></div>
